@@ -356,23 +356,23 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;bac
     <span class="stats-refresh-lbl">Event overview · all stations</span>
     <button class="btn-stats-refresh" onclick="refreshStats()">↻ Refresh</button>
   </div>
-  <!-- Door -->
-  <div class="stat-station-card door">
+  <!-- Banana (primary) -->
+  <div class="stat-station-card banana">
     <div class="ssc-head">
       <span class="ssc-title">🍌 Banana</span>
-      <span class="ssc-pct door" id="stats-door-pct">–%</span>
+      <span class="ssc-pct banana" id="stats-door-pct">–%</span>
     </div>
-    <div class="ssc-track"><div class="ssc-fill door" id="stats-door-bar" style="width:0%"></div></div>
+    <div class="ssc-track"><div class="ssc-fill banana" id="stats-door-bar" style="width:0%"></div></div>
     <div class="ssc-nums">
       <div class="ssc-num"><span class="ssc-num-v" id="stats-door-in">–</span><span class="ssc-num-l">Given</span></div>
       <div class="ssc-num"><span class="ssc-num-v" id="stats-door-pending">–</span><span class="ssc-num-l">Pending</span></div>
       <div class="ssc-num"><span class="ssc-num-v" id="stats-door-total">–</span><span class="ssc-num-l">Total</span></div>
     </div>
   </div>
-  <!-- Banana -->
+  <!-- Banana cross-ref -->
   <div class="stat-station-card banana">
     <div class="ssc-head">
-      <span class="ssc-title">🍌 Banana</span>
+      <span class="ssc-title">🍌 Banana (detail)</span>
       <span class="ssc-pct banana" id="stats-bn-pct">–%</span>
     </div>
     <div class="ssc-track"><div class="ssc-fill banana" id="stats-bn-bar" style="width:0%"></div></div>
@@ -646,7 +646,7 @@ function trackFlow(){flowData.push(Date.now());var co=Date.now()-600000;flowData
 
 function setCard(o){
   var c=document.getElementById('status-card');c.className='status-card '+(o.type||'');
-  c.innerHTML='<div class="s-name">'+esc(o.name)+'</div>'+(o.email?'<div class="s-email">'+esc(o.email)+'</div>':'')+'<span class="s-badge '+(o.bt||'")>'+esc(o.badge)+'</span>'+(o.meta?'<div class="s-meta">'+esc(o.meta)+'</div>':'')+(o.station?'<div class="s-stn">via '+esc(o.station)+'</div>':'');
+  c.innerHTML='<div class="s-name">'+esc(o.name)+'</div>'+(o.email?'<div class="s-email">'+esc(o.email)+'</div>':'')+'<span class="s-badge '+(o.bt||'')+'">'+esc(o.badge)+'</span>'+(o.meta?'<div class="s-meta">'+esc(o.meta)+'</div>':'')+(o.station?'<div class="s-stn">via '+esc(o.station)+'</div>':'');
 }
 
 function loadRoster(show){
